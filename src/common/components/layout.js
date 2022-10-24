@@ -9,17 +9,16 @@ export default function Layout({ children }) {
       <Head>
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <header className="row">
+      <header >
         <font size="6" face="Garamond">
           Personalized Email's 
         </font> 
         <Navbar />
       </header>
-      <main className="row">
-          <h5>this is what is sent from diffrent components</h5>
-          <div>{children}</div>       
+      <main >
+          {children}      
       </main>
-      <footer className="row"> <h2>this is the fotter</h2></footer>
+      <footer > <h2>this is the fotter</h2></footer>
     </div>
   );
 }

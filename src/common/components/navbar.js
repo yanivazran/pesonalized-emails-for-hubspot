@@ -8,7 +8,7 @@ export default function Navbar() {
 			<Head>
 				<meta
 						name="navbar"
-						content="use to navigate to site"
+						content="use to navigate the web-site"
 				/>
 				<meta
 						property="og:image"
