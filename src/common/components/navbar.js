@@ -70,9 +70,11 @@ export default function Navbar() {
 								</ul>
 						</li>
 						<li className="nav-item">
-								<a className="nav-link disabled" href="#" tabIndex="-1"
-										aria-disabled="true">Login First
+							<Link href="/iron-session/iron-index">
+								<a className="nav-link " >
+										Login First
 								</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
