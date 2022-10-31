@@ -2,23 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useField } from 'formik';
 
 export default function TextInput ({ label, helpText, ...props }) {
-  const [field, meta, helpers] = useField(props);
+  const [field, meta] = useField(props);
   const [fieldInFocus,setFieldInFocus] = useState(false)
   
-var styleClases = {inputClass:"" , divClass:""}
+  var validationStyleClases = {inputClass:"" , divClass:""}
 
   if((fieldInFocus && field.value )|| meta.touched){
-    if(meta.error )
-    {
-      
-      styleClases = {inputClass:"is-invalid" , divClass:"invalid-feedback"}
-      
-    }
-    else{
-      styleClases = {inputClass:"is-valid" , divClass:"valid-feedback"}
-
-    }
-
+      (meta.error ? validationStyleClases = {inputClass:"is-invalid" , divClass:"invalid-feedback"}
+                  : validationStyleClases = {inputClass:"is-valid" , divClass:"valid-feedback"});
   }
 
   return (
@@ -27,7 +18,7 @@ var styleClases = {inputClass:"" , divClass:""}
       <input
         {...props}
         {...field}
-        className={`shadow-sm bg-body rounded form-control  ${styleClases.inputClass} `}
+        className={`shadow-sm bg-body rounded form-control  ${validationStyleClases.inputClass} `}
         aria-describedby={`${props.id}-feedback ${props.id}-help`}
         onFocus={()=> setFieldInFocus(true)}   
       />
@@ -35,7 +26,7 @@ var styleClases = {inputClass:"" , divClass:""}
       <div
         id={`${props.id}-feedback`}
         aria-live="polite"
-        className={` ${styleClases.divClass} `}>
+        className={` ${validationStyleClases.divClass} `}>
           {meta.error ? meta.error : ''}
       </div>
     </div>
